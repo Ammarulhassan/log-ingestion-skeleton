@@ -1,0 +1,30 @@
+[
+  {
+    "id": "R001",
+    "name": "High-value transaction",
+    "severity": "high",
+    "type": "threshold",
+    "field": "amount",
+    "op": "gt",
+    "value": 10000
+  },
+  {
+    "id": "R002",
+    "name": "SQL injection pattern in request",
+    "severity": "critical",
+    "type": "threshold",
+    "field": "payload",
+    "op": "regex",
+    "value": "(?i)(\\bor\\b\\s+'?\\w+'?\\s*=\\s*'?\\w+|union\\s+select|--|;\\s*drop\\s)"
+  },
+  {
+    "id": "R003",
+    "name": "Failed-login burst from one IP",
+    "severity": "high",
+    "type": "rate",
+    "where": {"action": "login", "status": "FAILED"},
+    "group_by": "ip",
+    "count": 5,
+    "window_seconds": 60
+  }
+]

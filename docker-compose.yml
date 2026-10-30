@@ -1,0 +1,18 @@
+# Local attack lab. Run from repo root:  docker compose up --build
+services:
+  vuln-app:                      # intentionally vulnerable Flask app
+    build: {context: ., dockerfile: lab/vuln_app/Dockerfile}
+    ports: ["127.0.0.1:5000:5000"]   # bound to localhost only
+    volumes: ["./logs/lab:/logs"]
+  attacker:                      # fires brute-force + SQLi payloads at vuln-app
+    build: {context: ., dockerfile: lab/attacker/Dockerfile}
+    depends_on: [vuln-app]
+    environment: {TARGET_URL: "http://vuln-app:5000"}
+    restart: "no"
+  ingest:                        # our pipeline tails the app log and prints alerts
+    build: .
+    depends_on: [vuln-app]
+    volumes: ["./logs/lab:/logs"]
+    environment:
+      MODE: ingest
+      INGEST_FILE: /logs/app.log

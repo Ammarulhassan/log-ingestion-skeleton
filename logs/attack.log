@@ -1,0 +1,13 @@
+2026-09-23T14:00:00Z event_id=A0001 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:00:02Z event_id=A0002 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:00:04Z event_id=A0003 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:00:06Z event_id=A0004 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:00:08Z event_id=A0005 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:00:10Z event_id=A0006 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:00:12Z event_id=A0007 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:00:14Z event_id=A0008 user_id=admin action=login amount=0.00 status=FAILED ip=203.0.113.50
+2026-09-23T14:05:00Z event_id=A0009 user_id=attacker action=login amount=0.00 status=SUCCESS ip=203.0.113.66 payload="' OR '1'='1' --"
+2026-09-23T14:05:07Z event_id=A0010 user_id=attacker action=login amount=0.00 status=FAILED ip=203.0.113.66 payload=admin'--
+2026-09-23T14:05:14Z event_id=A0011 user_id=attacker action=login amount=0.00 status=FAILED ip=203.0.113.66 payload="' UNION SELECT 1,2 --"
+2026-09-23T14:05:21Z event_id=A0012 user_id=attacker action=login amount=0.00 status=FAILED ip=203.0.113.66 payload="x'; DROP TABLE users; --"
+2026-09-23T14:05:28Z event_id=A0013 user_id=attacker action=login amount=0.00 status=FAILED ip=203.0.113.66 payload="' OR 1=1 --"

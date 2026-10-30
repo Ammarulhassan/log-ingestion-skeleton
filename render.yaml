@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: roshan-log-monitor
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: true          # also redeploys on every push to main
+    envVars:
+      - {key: MODE, value: web}
+      - {key: SMTP_HOST, sync: false}     # e.g. sandbox.smtp.mailtrap.io
+      - {key: SMTP_PORT, value: "2525"}
+      - {key: SMTP_USER, sync: false}
+      - {key: SMTP_PASS, sync: false}
+      - {key: ALERT_TO, value: security@roshan.example}
